@@ -6,10 +6,10 @@ on:
     - main
 
 jobs:
- job1:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - name: put files to S3
     - uses: actions/checkout@master
     - uses: jakejarvis/s3-sync-action@master
       with:
@@ -20,11 +20,6 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         SOURCE-DIR: 'docs'
         DES-DIR: Documents/
- job2:
-  needs: job1
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run script
-        run: ./github/scripts/myscript.sh
-        shell: bash
+    # runs-on: ubuntu-latest
+    - name: Run script
+      run: ./github/scripts/myscript.sh/
