@@ -20,3 +20,9 @@ jobs:
         HEAD
         SOURCE-DIR: 'docs'
         DES-DIR: Documents/
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run script
+        run: ./github/scripts/myscript.sh
+        shell: bash
