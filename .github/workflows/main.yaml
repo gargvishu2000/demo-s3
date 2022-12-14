@@ -6,6 +6,7 @@ on:
     - main
 
 jobs:
+ job1:
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -19,6 +20,8 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         SOURCE-DIR: 'docs'
         DES-DIR: Documents/
+ job2:
+  needs: job1
   deploy:
     runs-on: ubuntu-latest
     steps:
